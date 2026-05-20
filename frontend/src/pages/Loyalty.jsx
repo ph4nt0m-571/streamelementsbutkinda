@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import api from '../utils/api'
-import { toast } from '../components/Toast'
+import { toast } from '../components/toast'
 
 export default function Loyalty() {
   const [config, setConfig] = useState({ currencyName: 'points', pointsPerMin: 1, enabled: false })

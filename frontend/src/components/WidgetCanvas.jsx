@@ -1,17 +1,12 @@
-import { useState } from 'react'
-import { DndContext, closestCenter, useDraggable, useDroppable } from '@dnd-kit/core'
+import { useCallback } from 'react'
 import { WIDGET_TYPES } from '../utils/constants'
 
 export default function WidgetCanvas({ widgets, onChange }) {
-  const [dragging, setDragging] = useState(null)
-
-  const addWidget = (type) => {
-    onChange([...widgets, { id: Date.now().toString(), type, x: 10, y: 10, w: 300, h: 200 }])
-  }
+  const addWidget = useCallback((type) => {
+    onChange(prev => [...prev, { id: Date.now().toString(), type, x: 10, y: 10, w: 300, h: 200 }])
+  }, [onChange])
 
   const removeWidget = (id) => onChange(widgets.filter(w => w.id !== id))
-
-  const updateWidget = (id, changes) => onChange(widgets.map(w => w.id === id ? { ...w, ...changes } : w))
 
   return (
     <div className="flex gap-4">

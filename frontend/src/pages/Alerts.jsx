@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import api from '../utils/api'
 import AlertCard from '../components/AlertCard'
-import { toast } from '../components/Toast'
+import { toast } from '../components/toast'
 import { EVENT_TYPES } from '../utils/constants'
 
 export default function Alerts() {

@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useEffect } from 'react'
+import { createContext, useContext, useState, useEffect, createElement } from 'react'
 import api from '../utils/api'
 
 const AuthContext = createContext(null)
@@ -17,13 +17,13 @@ export function AuthProvider({ children }) {
   const logout = async () => {
     await api.post('/auth/logout')
     setUser(null)
-    window.location.href = '/login'
+    window.location.replace('/login')
   }
 
-  return (
-    <AuthContext.Provider value={{ user, loading, logout, setUser }}>
-      {children}
-    </AuthContext.Provider>
+  return createElement(
+    AuthContext.Provider,
+    { value: { user, loading, logout, setUser } },
+    children
   )
 }
 

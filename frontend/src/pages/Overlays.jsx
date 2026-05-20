@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import api from '../utils/api'
 import WidgetCanvas from '../components/WidgetCanvas'
-import { toast } from '../components/Toast'
+import { toast } from '../components/toast'
 
 export default function Overlays() {
   const [widgets, setWidgets] = useState([])

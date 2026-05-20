@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import api from '../utils/api'
 import CommandRow from '../components/CommandRow'
 import ConfirmDialog from '../components/ConfirmDialog'
-import { toast } from '../components/Toast'
+import { toast } from '../components/toast'
 import { validateCommandForm } from '../utils/validators'
 import { MAX_COMMANDS } from '../utils/constants'
 

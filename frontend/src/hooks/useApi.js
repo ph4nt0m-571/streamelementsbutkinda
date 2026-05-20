@@ -14,7 +14,7 @@ export function useApi() {
     } catch (err) {
       const msg = err.response?.data?.error || err.response?.data?.errors?.[0]?.msg || 'Request failed'
       setError(msg)
-      throw new Error(msg)
+      throw new Error(msg, { cause: err })
     } finally {
       setLoading(false)
     }

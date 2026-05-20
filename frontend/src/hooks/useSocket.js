@@ -3,6 +3,9 @@ import { io } from 'socket.io-client'
 
 export function useSocket(token, onEvent) {
   const socketRef = useRef(null)
+  const onEventRef = useRef(onEvent)
+
+  useEffect(() => { onEventRef.current = onEvent }, [onEvent])
 
   useEffect(() => {
     if (!token) return
@@ -13,7 +16,7 @@ export function useSocket(token, onEvent) {
       reconnectionDelay: 1000,
     })
 
-    socket.on('alert', (data) => onEvent?.('alert', data))
+    socket.on('alert', (data) => onEventRef.current?.('alert', data))
     socket.on('connect_error', (err) => console.error('Socket error:', err.message))
 
     socketRef.current = socket

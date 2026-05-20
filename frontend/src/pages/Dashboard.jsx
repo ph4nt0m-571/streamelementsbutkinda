@@ -1,8 +1,6 @@
 import { useState } from 'react'
 import { useAuth } from '../hooks/useAuth'
-import { toast } from '../components/Toast'
-
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001'
+import { toast } from '../components/toast'
 
 export default function Dashboard() {
   const { user } = useAuth()

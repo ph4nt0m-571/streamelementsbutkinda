@@ -1,16 +1,5 @@
-import { useState, useEffect, createContext, useContext, useCallback } from 'react'
-
-const ToastContext = createContext(null)
-
-let toastFn = null
-
-export function useToast() {
-  return useContext(ToastContext)
-}
-
-export function toast(msg, type = 'info') {
-  toastFn?.({ msg, type, id: Date.now() })
-}
+import { useState, useEffect, useCallback } from 'react'
+import { setToastFn } from './toast'
 
 export default function Toast() {
   const [toasts, setToasts] = useState([])
@@ -20,7 +9,7 @@ export default function Toast() {
     setTimeout(() => setToasts(prev => prev.filter(x => x.id !== t.id)), 4000)
   }, [])
 
-  useEffect(() => { toastFn = add }, [add])
+  useEffect(() => { setToastFn(add) }, [add])
 
   const colors = { success: 'bg-green-600', error: 'bg-red-600', info: 'bg-purple-600' }
 

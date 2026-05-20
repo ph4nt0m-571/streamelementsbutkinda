@@ -10,7 +10,7 @@ export default function Login() {
 
   useEffect(() => {
     if (!loading && user) navigate('/dashboard', { replace: true })
-  }, [user, loading])
+  }, [user, loading, navigate])
 
   const params = new URLSearchParams(window.location.search)
   const error = params.get('error')
