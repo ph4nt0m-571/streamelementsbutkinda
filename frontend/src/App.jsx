@@ -8,7 +8,7 @@ import Loyalty from './pages/Loyalty'
 import Settings from './pages/Settings'
 import ProtectedRoute from './components/ProtectedRoute'
 import NavSidebar from './components/NavSidebar'
-import Toast from './components/Toast'
+import Toast from './components/Toast.jsx'
 
 export default function App() {
   return (
